@@ -1,10 +1,23 @@
 package com.rays.common;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DemoResponse {
+
+	private String message;
 
 	private String data;
 
-	private String message;
+	private Map<String, Object> result = new HashMap<String, Object>();
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
 	public String getData() {
 		return data;
@@ -14,11 +27,12 @@ public class DemoResponse {
 		this.data = data;
 	}
 
-	public String getTest() {
-		return message;
+	public Map<String, Object> getResult() {
+		return result;
 	}
 
-	public void setTest(String message) {
-		this.message = message;
+	public void setResult(Map<String, Object> result) {
+		this.result = result;
 	}
+
 }
