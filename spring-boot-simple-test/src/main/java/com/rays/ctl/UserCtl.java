@@ -1,5 +1,7 @@
 package com.rays.ctl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -70,6 +72,25 @@ public class UserCtl {
 
 		return res;
 
+	}
+
+	@PostMapping("search/{pageNo}")
+	public ORSResponse search(@RequestBody UserForm form, @PathVariable int pageNo) {
+
+		ORSResponse res = new ORSResponse();
+
+		UserDTO dto = new UserDTO();
+
+		dto.setFirstName(form.getFirstName());
+
+		List list = service.search(dto, pageNo, 5);
+
+		if (list.size() == 0) {
+			res.addMessage("Result not found...!!!");
+		} else {
+			res.addData(list);
+		}
+		return res;
 	}
 
 }
