@@ -1,0 +1,22 @@
+st_user => user registration (role_id, role_name, image_id)
+
+id | first_name | last_name | login_id | password | dob | role_id | role_name | image_id |
+ 1 | abc        | xyz       | abc@g.co | 123      | 25  | 2       | student   | null     |
+
+
+
+st_user => after login (add user)
+
+id | first_name | last_name | login_id | password | dob | role_id | role_name | image_id |
+
+
+st_role
+
+id |  name   | description |
+ 1 |  admin  | admin
+ 2 | student | student
+
+
+st_attachment
+
+id |   name   |   doc   |   type   | description | user_id
