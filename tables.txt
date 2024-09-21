@@ -22,7 +22,7 @@ st_user (After Login Example)
 |  1  |     ABC    |    XYZ    | abc@gmail.com |   123    | 25-01-2024 |    1    |   admin   |     1    |
 ---------------------------------------------------------------------------------------------------------
 
-- After login, Image ID is assigned if the user uploads an image (e.g., 101 corresponds to an entry in ST_ATTACHMENT).
+- After login, Image ID is assigned if the user uploads an image (e.g., 1 corresponds to an entry in ST_ATTACHMENT).
 
 
 =====================
