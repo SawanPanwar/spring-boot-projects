@@ -1,5 +1,7 @@
 package com.rays.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -51,5 +53,17 @@ public class UserService {
 			id = add(dto);
 		}
 		return id;
+	}
+	
+	@Transactional(readOnly = true)
+	public List search(UserDTO dto, int pageNo, int pageSize) {
+		List list = dao.search(dto, pageNo, pageSize);
+		return list;
+	}
+
+	@Transactional(readOnly = true)
+	public UserDTO findByLogin(String login) {
+		UserDTO dto = dao.findByUniqueKey("loginId", login);
+		return dto;
 	}
 }
