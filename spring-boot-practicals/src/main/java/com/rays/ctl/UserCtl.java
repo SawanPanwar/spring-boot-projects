@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rays.common.ORSResponse;
 import com.rays.dto.UserDTO;
-import com.rays.form.UserRegistrationForm;
+import com.rays.form.UserForm;
 import com.rays.service.UserService;
 
 @RestController
@@ -23,7 +23,7 @@ public class UserCtl {
 	public UserService userService;
 
 	@PostMapping("save")
-	public ORSResponse save(@RequestBody UserRegistrationForm form) {
+	public ORSResponse save(@RequestBody UserForm form) {
 
 		ORSResponse res = new ORSResponse();
 
@@ -34,6 +34,7 @@ public class UserCtl {
 		dto.setLoginId(form.getLoginId());
 		dto.setPassword(form.getPassword());
 		dto.setDob(form.getDob());
+		dto.setRoleId(form.getRoleId());
 
 		if (dto.getId() != null && dto.getId() > 0) {
 			userService.update(dto);
@@ -74,7 +75,7 @@ public class UserCtl {
 	}
 
 	@PostMapping("search/{pageNo}")
-	public ORSResponse search(@RequestBody UserRegistrationForm form, @PathVariable int pageNo) {
+	public ORSResponse search(@RequestBody UserForm form, @PathVariable int pageNo) {
 
 		ORSResponse res = new ORSResponse();
 
@@ -91,5 +92,4 @@ public class UserCtl {
 		}
 		return res;
 	}
-
 }

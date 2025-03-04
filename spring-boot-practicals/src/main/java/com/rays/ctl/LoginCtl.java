@@ -29,6 +29,7 @@ public class LoginCtl {
 		dto.setLoginId(form.getLoginId());
 		dto.setPassword(form.getPassword());
 		dto.setDob(form.getDob());
+		dto.setRoleId(2L);
 
 		long pk = service.add(dto);
 
